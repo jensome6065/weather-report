@@ -1,10 +1,14 @@
 import './App.css'
+import SearchForm from './SearchForm'
 
 function App() {
   return (
-    <header>
-      <h1>Weather Report</h1>
-    </header>
+    <main className="app-shell">
+      <header className="weather-card">
+        <h1 className="weather-title">Weather Report</h1>
+        <SearchForm />
+      </header>
+    </main>
   )
 }
 

@@ -10,6 +10,11 @@ Renders: A form containing a text input and a submit button.
 Props: `onSearch: (query: string) => void`
 Interactions: User types in the input and clicks submit (or presses Enter) to request weather for a location.
 
+### SearchForm - Decisions Log
+- **What Claude generated:** A functional `SearchForm` component scaffold that returns a `<form>` containing a text input and a submit button, with default export setup.
+- **What I changed:** Added `useState` for controlled input, implemented `onSubmit` with `preventDefault`, trimmed empty input, and called optional `onSearch` prop so both clicking Submit and pressing Enter follow the same handler.
+- **What I learned:** Submitting at the `<form>` level is the simplest way to support both button clicks and Enter key behavior without extra key listeners.
+
 Forecast
 Responsibility: Displays a multi-day weather forecast for the currently selected location.
 Renders: Forecast container with a list/grid of `Day` components (4 cards in the screenshot design).
