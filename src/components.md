@@ -21,6 +21,11 @@ Renders: Forecast container with a list/grid of `Day` components (4 cards in the
 Props: `days: DayForecast[]` (array of forecast objects for each day)
 Interactions: none (display-only in this design)
 
+### Forecast - Decisions Log
+- **What Claude generated:** A minimal `Forecast` functional component scaffold with an empty return structure and default export.
+- **What I changed:** Added a placeholder `<div>` with "Weather forecast will go here.", then rendered `Forecast` from `App` inside a dedicated forecast section for clear parent-child structure.
+- **What I learned:** Creating the parent section first makes it easier to swap placeholder content for real child components later without changing overall layout structure.
+
 Day
 Responsibility: Presents one day's forecast details in a card.
 Renders: Card with day/date label, weather icon image, condition text (e.g., Clouds/Rain), and temperature text.
