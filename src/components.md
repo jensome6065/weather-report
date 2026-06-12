@@ -17,14 +17,14 @@ Interactions: User types in the input and clicks submit (or presses Enter). If `
 
 Forecast
 Responsibility: Displays a multi-day weather forecast for the currently selected location.
-Renders: Forecast container with a list/grid of `Day` components (currently 5 hardcoded cards in this lab state).
-Props: none (currently uses hardcoded sample day data)
+Renders: Forecast container with a list/grid of `Day` components derived from parsed weather data.
+Props: `data: { list: Array<ForecastEntry> }`
 Interactions: none (display-only in this design)
 
 ### Forecast - Decisions Log
 - **What Claude generated:** A minimal `Forecast` functional component scaffold with an empty return structure and default export.
-- **What I changed:** Added a placeholder `<div>` with "Weather forecast will go here.", then rendered `Forecast` from `App` inside a dedicated forecast section for clear parent-child structure.
-- **What I learned:** Creating the parent section first makes it easier to swap placeholder content for real child components later without changing overall layout structure.
+- **What I changed:** Replaced hardcoded `Day` cards with `parseForecastData(data)` and mapped `preparedData` into `Day` components, passing `date`, `temperature`, `weather`, and `icon`.
+- **What I learned:** Keeping `Forecast` focused on transforming and mapping incoming data makes the component easier to scale than static card markup.
 
 Day
 Responsibility: Presents one day's forecast details in a card.
@@ -34,8 +34,8 @@ Interactions: none (display-only in this design)
 
 ### Day - Decisions Log
 - **Claude Audit result:** The spec and implementation initially diverged (`dayLabel/iconUrl/condition` in spec vs requested `date/weather/temperature` in implementation), and no `iconUrl` was being passed/rendered.
-- **What I changed:** Kept `Day` implementation aligned to this step (`date`, `weather`, `temperature`) and updated the Day spec to match what is actually rendered; added 5 `Day` instances in `Forecast` with unique props.
-- **What I learned:** Prop names should match the agreed interface exactly, because even small naming drift between spec and usage quickly creates integration bugs between parent and child components.
+- **What I changed:** Updated `Day` to accept `icon` and render the OpenWeather icon URL, while keeping temperature color logic based on the numeric `temperature` prop.
+- **What I learned:** Prop interfaces work best when the rendering component consumes exactly the fields prepared upstream, with no hidden hardcoded values.
 
 ## Spec Reconciliation (Lab 2)
 

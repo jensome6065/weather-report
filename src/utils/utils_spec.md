@@ -11,7 +11,7 @@ Array of clean objects, one per forecast entry, matching the Day component prop 
 | Output key | Raw data path | Transformation | Output type |
 |---|---|---|---|
 | date | list[i].dt_txt | ISO string -> "Weekday, Month Day" via `formatDate()` | string |
-| temperature | list[i].main.temp | Kelvin -> Fahrenheit via `kelvinToFahrenheit()`, 2 decimal string | string |
+| temperature | list[i].main.temp | Kelvin -> Fahrenheit via `kelvinToFahrenheit()`, then converted to number | number |
 | weather | list[i].weather[0].main | None - pass through | string |
 | description | list[i].weather[0].description | None - pass through | string |
 | icon | list[i].weather[0].icon | None - used to build image URL in Day component | string |
@@ -41,3 +41,17 @@ Array of clean objects, one per forecast entry, matching the Day component prop 
 - **What I used AI for:** Used AI to validate the spec scaffold and confirm `.map()` plus nested field access patterns for `list[i].weather[0]`.
 - **What I changed:** Kept the core mapping logic, but added defensive checks and filtered out invalid entries so one malformed item does not break the full transformation.
 - **What I learned:** Array transformation is cleaner when each item is mapped into the target shape first, then invalid results are removed with `.filter(...)`.
+
+## Spec Reconciliation (Lab 3)
+
+**Reviewed:** 2026-06-12
+
+**Gaps found:**
+- `kelvinToFahrenheit`: none
+- `formatDate`: none
+- `parseForecastData`: field mapping in the spec listed `temperature` as `string`, but implementation returns a `number`; updated spec to reflect current implementation.
+
+**Outcome:**
+- [x] Spec reflects current implementation
+- [x] All decisions logged
+- [x] `components.md` updated if any prop interface changes occurred
