@@ -32,13 +32,38 @@
   margin-top: 28px;
 }
 
-.forecast-placeholder {
-  border: 1px dashed #c8d0dd;
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.day-card {
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  padding: 20px;
-  text-align: center;
-  color: #657185;
+  padding: 14px 10px;
   background: #f8fbff;
+  text-align: center;
+}
+
+.day-date {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.day-weather {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: #334155;
+}
+
+.day-temp {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
 }
 
 .search-input {
@@ -99,5 +124,9 @@
 
   .forecast-section {
     margin-top: 20px;
+  }
+
+  .forecast-grid {
+    grid-template-columns: 1fr;
   }
 }

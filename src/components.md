@@ -28,6 +28,11 @@ Interactions: none (display-only in this design)
 
 Day
 Responsibility: Presents one day's forecast details in a card.
-Renders: Card with day/date label, weather icon image, condition text (e.g., Clouds/Rain), and temperature text.
-Props: `dayLabel: string`, `iconUrl: string`, `condition: string`, `temperature: number`
+Renders: Card with date label, weather text (e.g., Sunny/Rain), and temperature text.
+Props: `date: string`, `weather: string`, `temperature: string`
 Interactions: none (display-only in this design)
+
+### Day - Decisions Log
+- **Claude Audit result:** The spec and implementation initially diverged (`dayLabel/iconUrl/condition` in spec vs requested `date/weather/temperature` in implementation), and no `iconUrl` was being passed/rendered.
+- **What I changed:** Kept `Day` implementation aligned to this step (`date`, `weather`, `temperature`) and updated the Day spec to match what is actually rendered; added 5 `Day` instances in `Forecast` with unique props.
+- **What I learned:** Prop names should match the agreed interface exactly, because even small naming drift between spec and usage quickly creates integration bugs between parent and child components.
