@@ -4,11 +4,11 @@ import Forecast from './Forecast'
 
 function App() {
   return (
-    <main className="app-shell">
-      <header className="weather-card">
+    <main id="app-shell" className="app-shell">
+      <header id="weather-card" className="weather-card">
         <h1 className="weather-title">Weather Report</h1>
         <SearchForm />
-        <section className="forecast-section">
+        <section id="forecast-section" className="forecast-section">
           <Forecast />
         </section>
       </header>

@@ -29,7 +29,7 @@ Interactions: none (display-only in this design)
 Day
 Responsibility: Presents one day's forecast details in a card.
 Renders: Card with date label, weather text (e.g., Sunny/Rain), and temperature text.
-Props: `date: string`, `weather: string`, `temperature: string`
+Props: `date: string`, `weather: string`, `temperature: number`
 Interactions: none (display-only in this design)
 
 ### Day - Decisions Log
